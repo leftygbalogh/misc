@@ -220,7 +220,7 @@ vim /etc/pam.d/login
 comment out that line that requires it
 
 # Add search param if missing
-if [ `grep -q 'search' /etc/resolv.conf; echo $?` -eq 1 ];then echo "nincs"; `echo 'search ete.ka.sw.ericsson.se' >> /etc/resolv.conf`; fi;
+if [ `grep -q 'search' /etc/resolv.conf; echo $?` -eq 1 ];then echo "nincs"; `echo 'search sson.se' >> /etc/resolv.conf`; fi;
 
 #Turn off firewall on RHEL 6.5
 service iptables save
@@ -240,7 +240,7 @@ chkconfig iptables off
     log_user 0
     send "exit\n"
 
-[root@home ~]#
+[root@home ~]
     for server in server1 server2 server3 server4 server5; do echo -e "$server: \c"; /root/server-version.sh $server; echo; echo; done;
 
 #Output
@@ -264,7 +264,7 @@ var="$(lsblk | grep vg01 | cut -c 3- | cut -d ' ' -f 1)"; echo $var; if [ -z "$v
 #Capture TCP dump for 10 seconds
 tcpdump -w /tmp/tcpdump.log -i eno1 -G 10 -W 1 &
 
-tail -f /tmp/tcpdump.log | awk '/X-Manager-Host/ {print "\033[32m" $0 "\033[39m"}  /seliics01713/ {print "\033[31m" $0 "\033[39m"}'
+tail -f /tmp/tcpdump.log | awk '/X-Manager-Host/ {print "\033[32m" $0 "\033[39m"}  /sels01713/ {print "\033[31m" $0 "\033[39m"}'
 
 kill $(ps -ef | grep tcp | cut -d ' ' -f3)
 
@@ -292,7 +292,7 @@ ifconfig ens224 up 192.168.0. netmask 255.255.252.0; ifconfig -a | grep ens224 -
 
 #Mount cea-proj
 vim /etc/fstab
-sekaisteproj1123.ete.ka.sw.ericsson.se:/teproj/proj110072/cea-proj /mnt/cea-proj   nfs rw,soft,bg,nfsvers=3    0 0
+server.com:/teproj/proj110072/cea-proj /mnt/cea-proj   nfs rw,soft,bg,nfsvers=3    0 0
 mkdir -p /mnt/cea-proj
 service rpcbind start
 mount -a
@@ -307,8 +307,8 @@ chkconfig iptables off
 docker ps -a | grep -e "no" -e "dead" -e "exited"
 
 #remove password auth from ssh
-ssh-keygen -t rsa -C 'geza.balogh@ericsson.com'
-ssh-copy-id root@seliics01691
+ssh-keygen -t rsa -C 'geza.balogh@mail.com'
+ssh-copy-id root@selcs01691
 
 #grep on everything that does not match
-cat /opt/ericsson/eea/log/pag_gpeh_gpeh_avro_0.log | grep -avE 'Pag replay thread|Pag replay thread|Pag Set compressio|Pag sending replay|Pag stopped replay|Pag deleted replay|Pag got control re|Pag got control re|Pag stopping repla|Pag finished read|Pag start replay|reading historic events|from|stopping replay thread|000000'
+cat /opt/sson/eea/log/pag_gpeh_gpeh_avro_0.log | grep -avE 'Pag replay thread|Pag replay thread|Pag Set compressio|Pag sending replay|Pag stopped replay|Pag deleted replay|Pag got control re|Pag got control re|Pag stopping repla|Pag finished read|Pag start replay|reading historic events|from|stopping replay thread|000000'
